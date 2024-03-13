@@ -13,7 +13,6 @@ from .MBP import *
 #from openmm.app import PME 
 #from openmm.app import HBonds 
 
-#ToDo: include amber ff input 
 def openMM_simulation(forcefield:str,
                       equisteps:int,
                       nsteps:int,
