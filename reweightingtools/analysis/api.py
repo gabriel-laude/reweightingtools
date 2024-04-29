@@ -229,7 +229,7 @@ def deeptime_eigenvectors(lagtime:int,
             # - discretized trajectory
             # - g and M factor from openMM simulation using LangevinSplittingGirsanov integrator
 ´           
-            >>> deeptime_eigenvectors(lagtime=[1,3,5,7,9,10] ,
+            >>> deeptime_eigenvectors(lagtime=150 ,
                                       gridsize=36,
                                       number_eigenvectors=2,
                                       reversible=True,
