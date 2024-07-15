@@ -1,0 +1,72 @@
+Simulation Start 2024-07-03 10:02:06.554871
+potential        :  <class 'reweightingtools.potential.MBP.mmMueller'> 
+perturbation     :  {'this': <Swig Object of type 'OpenMM::CustomExternalForce *' at 0x7f76e16fa0a0>} 
+nsteps           :  101 
+nstxout          :  1 
+temperature      :  300 K 
+collision_rate   :  5 /ps 
+timestep         :  0.5 fs 
+Simulation Start 2024-07-03 10:03:21.233046
+potential        :  <class 'reweightingtools.potential.MBP.mmMueller'> 
+perturbation     :  {'this': <Swig Object of type 'OpenMM::CustomExternalForce *' at 0x7f45476fa070>} 
+nsteps           :  101 
+nstxout          :  1 
+temperature      :  300 K 
+collision_rate   :  5 /ps 
+timestep         :  0.5 fs 
+Simulation Start 2024-07-03 10:25:03.068668
+potential        :  <class 'reweightingtools.potential.MBP.mmMueller'> 
+perturbation     :  {'this': <Swig Object of type 'OpenMM::CustomExternalForce *' at 0x7ff42e53ddd0>} 
+nsteps           :  101 
+nstxout          :  1 
+temperature      :  300 K 
+collision_rate   :  5 /ps 
+timestep         :  0.5 fs 
+Simulation Start 2024-07-03 10:25:29.236806
+potential        :  <class 'reweightingtools.potential.MBP.mmMueller'> 
+perturbation     :  {'this': <Swig Object of type 'OpenMM::CustomExternalForce *' at 0x7f08f8cfdda0>} 
+nsteps           :  101 
+nstxout          :  1 
+temperature      :  300 K 
+collision_rate   :  5 /ps 
+timestep         :  0.5 fs 
+Simulation Start 2024-07-03 10:26:43.309296
+potential        :  <class 'reweightingtools.potential.MBP.mmMueller'> 
+perturbation     :  {'this': <Swig Object of type 'OpenMM::CustomExternalForce *' at 0x7fa674e81dd0>} 
+nsteps           :  101 
+nstxout          :  1 
+temperature      :  300 K 
+collision_rate   :  5 /ps 
+timestep         :  0.5 fs 
+Simulation Start 2024-07-03 10:27:50.997145
+potential        :  <class 'reweightingtools.potential.MBP.mmMueller'> 
+perturbation     :  {'this': <Swig Object of type 'OpenMM::CustomExternalForce *' at 0x7faf08dd5ec0>} 
+nsteps           :  101 
+nstxout          :  1 
+temperature      :  300 K 
+collision_rate   :  5 /ps 
+timestep         :  0.5 fs 
+Simulation Start 2024-07-03 10:28:48.314340
+potential        :  <class 'reweightingtools.potential.MBP.mmMueller'> 
+perturbation     :  {'this': <Swig Object of type 'OpenMM::CustomExternalForce *' at 0x7f66abaf5ec0>} 
+nsteps           :  101 
+nstxout          :  1 
+temperature      :  300 K 
+collision_rate   :  5 /ps 
+timestep         :  0.5 fs 
+Simulation Start 2024-07-03 10:29:28.857067
+potential        :  <class 'reweightingtools.potential.MBP.mmMueller'> 
+perturbation     :  {'this': <Swig Object of type 'OpenMM::CustomExternalForce *' at 0x7f790a6ca040>} 
+nsteps           :  101 
+nstxout          :  1 
+temperature      :  300 K 
+collision_rate   :  5 /ps 
+timestep         :  0.5 fs 
+Simulation Start 2024-07-03 11:01:28.002093
+potential        :  <class 'reweightingtools.potential.MBP.mmMueller'> 
+perturbation     :  {'this': <Swig Object of type 'OpenMM::CustomExternalForce *' at 0x7ff2bf4480c0>} 
+nsteps           :  101 
+nstxout          :  1 
+temperature      :  300 K 
+collision_rate   :  5 /ps 
+timestep         :  0.5 fs 
