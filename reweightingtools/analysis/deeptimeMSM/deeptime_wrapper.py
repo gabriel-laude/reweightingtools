@@ -159,3 +159,49 @@ def get_eigenvalues(dtraj,
     # store the largest connected sets
     lcs = largest_connected_set(counts.count_matrix)
     return eigenval, lcs
+
+
+def get_msm_model(dtraj,
+                     lagtime,
+                     reversible,
+                     stationary_distribution_constraint,
+                     countmode,
+                     k,
+                     reweighting_factors
+                     ):
+    '''This function is a low-level function for evaluating the implied time scales 
+    based on a discrete trajectory and a count estimator. A choice can be made 
+    between the TransitionCountEstimator or the GirsanovReweightingEstimator.'''
+    # instantiate the MaximumLikelihoodMSM estimator for MSM 
+    estimator = MaximumLikelihoodMSM(
+            reversible=reversible,
+            stationary_distribution_constraint=stationary_distribution_constraint)
+
+    if reweighting_factors!= None:
+        # collect statistics from discret trajectory using GirsanovReweightingEstimator
+        reweighted_count_estimator = GirsanovReweightingEstimator(lagtime=lagtime,
+                                                                  count_mode=countmode)
+        # use Girsanov reweighting estimator to fit a reweighted count model
+        counts = reweighted_count_estimator.fit(data=dtraj,
+                                                reweighting_factors=reweighting_factors).fetch_model()  
+
+    else:
+        # collect statistics from discret trajectory using deeptime’s transition count estimator
+        count_estimator = TransitionCountEstimator(lagtime=lagtime, 
+                                                   count_mode=countmode,
+                                                   sparse=True)
+       
+        # use transition count estimator to fit a count model
+        counts = count_estimator.fit(dtraj).fetch_model() 
+
+
+
+    # re-estimate a MSM based on the count model
+    msm = estimator.fit(counts).fetch_model()
+    # create MSM model based on transition matrix
+    msm_model = MarkovStateModel(msm.transition_matrix, 
+                                 lagtime=lagtime,
+                                 n_eigenvalues=k)
+    
+    
+    return msm_model
