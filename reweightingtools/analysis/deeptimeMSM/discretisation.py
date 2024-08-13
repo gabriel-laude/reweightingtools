@@ -8,9 +8,7 @@ Created on Thu Jul 27 14:54:14 2023
 from ._utils import *
 
 def trajectory1D(traj1D,
-                 gridsize,
-                 min1D,
-                 max1D
+                 gridsize
                  ):
     ''' Low level function. This function discretizes a number of trajectories
     into microstates. The grid is defined according to a given (minv, max) 
@@ -24,7 +22,8 @@ def trajectory1D(traj1D,
 def trajectory2D(trajxyz,
                  gridsize,
                  trajxyzmin,
-                 trajxyzmax
+                 trajxyzmax,
+                 return_dxdy=False
                  ):
     ''' Top level function. This function discretizes a number of trajectories
     into microstates. The grid is defined on the single trajectory or according
@@ -38,4 +37,38 @@ def trajectory2D(trajxyz,
     trajxyz[:,0] = np.floor(trajxyz[:,0]/dx)
     trajxyz[:,1] = np.floor(trajxyz[:,1]/dy)
     dtraj = trajxyz[:,0]*gridsize  + trajxyz[:,1]
-    return dtraj.astype(int)
+
+    if return_dxdy:
+        return dtraj.astype(int), dx, dy
+    else:
+        return dtraj.astype(int)
+
+def cluster_centers_1D(traj1D, gridsize):
+    min_traj = np.min(traj1D)
+    traj1D_shifted = traj1D - min_traj
+    dx = np.max(traj1D_shifted) / (gridsize - 1)
+    centers = np.arange(gridsize) * dx + min_traj + dx / 2
+    
+    return centers
+
+def calculate_cluster_centers(trajxyz, dtraj, gridsize, trajxyzmin):
+    # Find unique microstates
+    unique_microstates = np.unique(dtraj)
+
+    # Initialize a dictionary to accumulate points for each microstate
+    microstate_points = {microstate: [] for microstate in unique_microstates}
+
+    # Populate the dictionary with points corresponding to each microstate
+    for i, microstate in enumerate(dtraj):
+        microstate_points[microstate].append(trajxyz[i])
+
+    cluster_centers = []
+    for microstate, points in microstate_points.items():
+        points = np.array(points)
+        center_x = np.mean(points[:, 0])
+        center_y = np.mean(points[:, 1])
+        cluster_centers.append((center_x, center_y))
+    
+    assert len(cluster_centers) == len(unique_microstates)
+
+    return np.array(cluster_centers), unique_microstates
