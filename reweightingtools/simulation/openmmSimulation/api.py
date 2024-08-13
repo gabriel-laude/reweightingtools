@@ -7,7 +7,7 @@ Created on Wed Jul 12 11:51:31 2023
 """
 # I M P O R T S
 from openmm.unit import *
-from ..openMM_wrapper import *
+from .openMM_wrapper import *
 
 def openMM_simulation(forcefield:str,
                       equisteps:int,
