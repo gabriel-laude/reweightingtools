@@ -7,8 +7,8 @@ Created on Mon Jul 31 13:42:48 2023
 
 This file contains function for eigenvalue and vector analysis of a MSM with deeptime.
 """
-from reweightingtools.analysis.deeptime_wrapper import *
-from reweightingtools.analysis._utils import *
+from reweightingtools.analysis.deeptimeMSM.deeptime_wrapper import *
+from reweightingtools.analysis.deeptimeMSM._utils import *
 from openmm.unit import * 
 from openmmtools.constants import kB
 
